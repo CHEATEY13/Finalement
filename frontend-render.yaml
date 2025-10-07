@@ -1,8 +1,8 @@
 services:
   - type: static
     name: codeclarity-frontend
-    buildCommand: echo "Frontend static site - no build required"
-    staticPublishPath: ./frontend
+    buildCommand: echo "Frontend static site - no build required" && mkdir -p build && cp -r frontend/* build/
+    staticPublishPath: ./build
     envVars:
       - key: API_BASE_URL
         value: https://your-backend-app-name.onrender.com
