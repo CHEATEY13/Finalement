@@ -5,9 +5,8 @@ const rateLimit = require('express-rate-limit');
 const path = require('path');
 require('dotenv').config();
 
-// Temporarily comment out auth routes to fix deployment issue and get basic server running
-// const authRoutes = require('./routes/auth');
-const apiRoutes = require('./routes/api');
+// Use simplified API routes without auth dependencies
+const apiRoutes = require('./routes/api-simple');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
