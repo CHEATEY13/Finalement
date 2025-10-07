@@ -11,9 +11,32 @@ const apiRoutes = require('./routes/api-simple');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Security middleware
-app.use(helmet());
-app.use(cors());
+// Security middleware with relaxed CSP for development
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://cdn.tailwindcss.com", "https://fonts.googleapis.com", "https://cdn.jsdelivr.net"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "https://cdn.tailwindcss.com", "https://unpkg.com", "https://cdnjs.cloudflare.com", "https://cdn.jsdelivr.net"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
+      connectSrc: ["'self'", "http://localhost:3001"],
+      imgSrc: ["'self'", "data:", "https:"],
+      objectSrc: ["'none'"],
+      mediaSrc: ["'self'"],
+      frameSrc: ["'none'"],
+    },
+  },
+}));
+
+// CORS configuration for frontend
+app.use(cors({
+  origin: [
+    'https://your-frontend-app-name.onrender.com', // Replace with your frontend URL
+    'http://localhost:3000', // For local development
+    'http://127.0.0.1:3000'  // For local development
+  ],
+  credentials: true
+}));
 
 // Rate limiting
 const limiter = rateLimit({

@@ -4,8 +4,8 @@
 let currentUser = null;
 let currentResults = null;
 
-// API Base URL
-const API_BASE = window.location.origin;
+// API Base URL - For local development
+const API_BASE = 'http://localhost:3001';
 
 // Initialize application
 document.addEventListener('DOMContentLoaded', function() {

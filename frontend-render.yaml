@@ -1,0 +1,5 @@
+services:
+  - type: static
+    name: codeclarity-frontend
+    buildCommand: echo "Frontend static site - no build required"
+    staticPublishPath: ./frontend
