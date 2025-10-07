@@ -1,11 +1,5 @@
 services:
-  - type: web
-    name: codeclarity
-    env: node
-    buildCommand: npm install
-    startCommand: npm start
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - key: PORT
-        value: 10000
+  - type: static
+    name: codeclarity-frontend
+    buildCommand: echo "Static site - no build required"
+    staticPublishPath: ./frontend
