@@ -3,3 +3,8 @@ services:
     name: codeclarity-frontend
     buildCommand: echo "Frontend static site - no build required"
     staticPublishPath: ./frontend
+    envVars:
+      - key: API_BASE_URL
+        value: https://your-backend-app-name.onrender.com
+      - key: NODE_ENV
+        value: production

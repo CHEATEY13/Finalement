@@ -1,7 +1,7 @@
 // Authentication JavaScript for CodeClarity
 
-// API Base URL - For local development
-const API_BASE = 'http://localhost:3001';
+// API Base URL - Use environment variable or fallback to localhost
+const API_BASE = window.API_BASE_URL || 'http://localhost:3001';
 
 // Initialize authentication page
 document.addEventListener('DOMContentLoaded', function() {
